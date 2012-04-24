@@ -1,30 +1,72 @@
 # Localized Landing Pages
 
-Non-obtrusive banners for localized landing pages
+A simple and non-obtrusive way to alert your international visitors of pages on your site written in their language.
 
 ## Getting Started
 Download the [production version][min] or the [development version][max].
 
-[min]: https://raw.github.com/matt/jquery.localLanding/master/dist/jquery.localLanding.min.js
-[max]: https://raw.github.com/matt/jquery.localLanding/master/dist/jquery.localLanding.js
+[min]: https://raw.github.com/mattmcmanus/jquery.localLanding/master/dist/jquery.localLanding.min.js
+[max]: https://raw.github.com/mattmcmanus/jquery.localLanding/master/dist/jquery.localLanding.js
 
 In your web page:
+
 
 ```html
 <script src="jquery.js"></script>
 <script src="dist/jquery.localLanding.min.js"></script>
 <script>
 jQuery(function($) {
-  $.awesome(); // "awesome"
+  $.localLanding({
+    css : 'dist/jquery.localLanding.css',
+    languages: {
+      es: {
+        url: 'http://www.arcadia.edu/spanish',
+        text: 'Spanish Landing page',
+        src: 'http://unbounce.com/photos/spanish-flag1.gif'
+      }
+    }
+  });
 });
 </script>
 ```
-
 ## Documentation
-_(Coming soon)_
+
+When you call the localLanding method, you must supply a settings object. The object should contain two parts, an optional CSS file and the languages you want to detect:
+
+```
+{
+  css : url to css file,
+  languages: { 
+    language code: ex 'es': {
+      url: url of page you want to give users the option to go to,
+      text: The text for the link,
+      src: *Optional* url to an image to use instead of plain text
+    }
+  }
+}
+```
 
 ## Examples
-_(Coming soon)_
+
+For example, you are the website for a university in the US. You have a significant number of visitors from spanish and chinese speaking counties. You want to unobtrusively give them the option to visit a landing page written in their language by doing the following:
+
+```
+$.localLanding({
+  css : 'http://cdn.school.edu/js/libs/jquery.localLanding.css',
+  languages: {
+    es: {
+      url: 'http://school.edu/spanish-landing-page',
+      text: 'Spanish Landing page',
+      src: 'http://cdn.school.edu/img/spanish-greeting.png'
+    },
+    zh: {
+      url: 'http://school.edu/chinese-landing-page',
+      text: 'Chinese Landing page',
+      src: 'http://cdn.school.edu/img/chinese-greeting.png'
+    }
+  }
+});
+```
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](https://github.com/cowboy/grunt).
