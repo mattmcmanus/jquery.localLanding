@@ -22,10 +22,32 @@
       raises(block, [expected], [message])
   */
 
-  module('jQuery.localLanding');
+  var options = {
+    css : 'jquery.localLanding.css',
+    languages: {
+      es: {
+        url: 'http://www.arcadia.edu',
+        text: 'Spanish Landing page',
+        src: 'http://unbounce.com/photos/spanish-flag1.gif'
+      }
+    }
+  };
 
-  test('is localLanding', 1, function() {
-    strictEqual($.localLanding(), 'awesome', 'should be thoroughly awesome');
+  module('jQuery.localLanding in english');
+  test('is english', 1, function() {
+    $.localLanding(options);
+    equal($('#localLanding').length, 0, 'should do nothing');
+  });
+
+  module('jQuery.localLanding in spanish', {
+    setup: function() {
+      $.lang = 'es';
+    }
+  });
+
+  test('is spanish', 1, function() {
+    $.localLanding(options);
+    equal($('#localLanding').attr('href'), 'http://www.arcadia.edu', 'should add spanish landing link to arcadia.edu');
   });
 
 }(jQuery));

@@ -1,0 +1,21 @@
+/*
+
+  This is a sample CSS file. Use the classes below and change them as you need
+
+*/
+
+.ir {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#localLanding {
+  display:block;
+  width:100px;
+  height:30px;
+  padding: 5px 10px;
+  position: absolute;
+  bottom:0;
+  right:0;
+}

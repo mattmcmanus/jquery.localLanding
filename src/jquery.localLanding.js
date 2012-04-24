@@ -6,13 +6,54 @@
  * Licensed under the MIT, GPL licenses.
  */
 
-(function($) {
-  // Mozilla uses .language, IE uses .userLanguage
-  $.language = navigator.language.substr(0,2) || navigator.userLanguage.substr(0,2)
+/*
+options = {
+  css : '',
+  languages: {
+    es: {
+      url: '',
+      text: '',
+      src: ''
+    },
+    ar: {
+      url: '',
+      text: '',
+      src: ''
+    },
+    zh: {
+      url: '',
+      text: '',
+      src: ''
+    }
+  }
+}
 
-  // Static method.
+Process:
+1. Detect proper language
+2. Load CSS
+3. Drop element in
+
+*/
+
+(function($) {
+  // Mozilla uses .language, IE uses .userLanguage. Strip out specific localities, 
+  // high level language is fine
+  $.lang = navigator.language.substr(0,2) || navigator.userLanguage.substr(0,2);
+
   $.localLanding = function(options) {
-    return 'awesome';
+    if (options.languages[$.lang]) {
+      var lang = options.languages[$.lang], a = [];
+
+      // Load the CSS file if one is specified
+      if (options.css) { $('head').append('<link rel="stylesheet" href="http://cms-staging.arcadia.edu/css/activeDataX.css" type="text/css" />'); }
+
+      a.push('<a id="localLanding" href="'+lang.url+'" ');
+      if (lang.src) {
+        a.push('class="ir" style="background-image:url('+lang.src+')"');
+      } 
+      a.push('>'+lang.text+'</a>');
+      $(a.join('')).appendTo('body');
+    }
   };
 
 }(jQuery));
