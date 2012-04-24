@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Jquery.locallanding by mattmcmanus</title>
+    
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Jquery.locallanding</h1>
+        <p>Non-obtrusively prompt users to go to localized landing pages</p>
+        <p class="view"><a href="https://github.com/mattmcmanus/jquery.localLanding">View the Project on GitHub <small>mattmcmanus/jquery.localLanding</small></a></p>
+        <ul>
+          <li><a href="https://github.com/mattmcmanus/jquery.localLanding/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/mattmcmanus/jquery.localLanding/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/mattmcmanus/jquery.localLanding">Fork On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Localized Landing Pages</h1>
+
+<p>A simple and non-obtrusive way to alert your international visitors of pages on your site written in their language. The plugin simply detects the browsers language setting and provides a link to landing page of your choice.</p>
+
+<h2>Getting Started</h2>
+
+<p>Download the <a href="https://raw.github.com/mattmcmanus/jquery.localLanding/master/dist/jquery.localLanding.min.js">production version</a> or the <a href="https://raw.github.com/mattmcmanus/jquery.localLanding/master/dist/jquery.localLanding.js">development version</a>.</p>
+
+<p>In your web page:</p>
+
+<div class="highlight">
+<pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"jquery.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"dist/jquery.localLanding.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+<span class="nx">jQuery</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">.</span><span class="nx">localLanding</span><span class="p">({</span>
+    <span class="nx">css</span> <span class="o">:</span> <span class="s1">'dist/jquery.localLanding.css'</span><span class="p">,</span>
+    <span class="nx">languages</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">es</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s1">'http://www.arcadia.edu/spanish'</span><span class="p">,</span>
+        <span class="nx">text</span><span class="o">:</span> <span class="s1">'Spanish Landing page'</span><span class="p">,</span>
+        <span class="nx">src</span><span class="o">:</span> <span class="s1">'http://unbounce.com/photos/spanish-flag1.gif'</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre>
+</div>
+
+
+<h2>Documentation</h2>
+
+<p>When you call the localLanding method, you must supply a settings object. The object has two parts, an optional CSS file and the languages you want to detect:</p>
+
+<div class="highlight">
+<pre><span class="p">{</span>
+  <span class="nx">css</span> <span class="o">:</span> <span class="nx">url</span> <span class="nx">to</span> <span class="nx">css</span> <span class="nx">file</span><span class="p">,</span>
+  <span class="nx">languages</span><span class="o">:</span> <span class="p">{</span> 
+    <span class="nx">language</span> <span class="nx">code</span><span class="o">:</span> <span class="nx">ex</span> <span class="s1">'es'</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="nx">url</span> <span class="nx">of</span> <span class="nx">page</span> <span class="nx">you</span> <span class="nx">want</span> <span class="nx">to</span> <span class="nx">give</span> <span class="nx">users</span> <span class="nx">the</span> <span class="nx">option</span> <span class="nx">to</span> <span class="nx">go</span> <span class="nx">to</span><span class="p">,</span>
+      <span class="nx">text</span><span class="o">:</span> <span class="nx">The</span> <span class="nx">text</span> <span class="k">for</span> <span class="nx">the</span> <span class="nx">link</span><span class="p">,</span>
+      <span class="nx">src</span><span class="o">:</span> <span class="o">*</span><span class="nx">Optional</span><span class="o">*</span> <span class="nx">url</span> <span class="nx">to</span> <span class="nx">an</span> <span class="nx">image</span> <span class="nx">to</span> <span class="nx">use</span> <span class="nx">instead</span> <span class="nx">of</span> <span class="nx">plain</span> <span class="nx">text</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+
+<h2>Examples</h2>
+
+<p>For example, you are the website for a university in the US. You have a significant number of visitors that have their language set to Spanish or Chinese. You want to unobtrusively give them the option to visit a landing page written in their language by doing the following:</p>
+
+<div class="highlight">
+<pre><span class="nx">$</span><span class="p">.</span><span class="nx">localLanding</span><span class="p">({</span>
+  <span class="nx">css</span> <span class="o">:</span> <span class="s1">'http://cdn.school.edu/js/libs/jquery.localLanding.css'</span><span class="p">,</span>
+  <span class="nx">languages</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">es</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="s1">'http://school.edu/spanish-landing-page'</span><span class="p">,</span>
+      <span class="nx">text</span><span class="o">:</span> <span class="s1">'Spanish Landing page'</span><span class="p">,</span>
+      <span class="nx">src</span><span class="o">:</span> <span class="s1">'http://cdn.school.edu/img/spanish-greeting.png'</span>
+    <span class="p">},</span>
+    <span class="nx">zh</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="s1">'http://school.edu/chinese-landing-page'</span><span class="p">,</span>
+      <span class="nx">text</span><span class="o">:</span> <span class="s1">'Chinese Landing page'</span><span class="p">,</span>
+      <span class="nx">src</span><span class="o">:</span> <span class="s1">'http://cdn.school.edu/img/chinese-greeting.png'</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre>
+</div>
+
+
+<h2>Contributing</h2>
+
+<p>In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using <a href="https://github.com/cowboy/grunt">grunt</a>.</p>
+
+<p><em>Also, please don't edit files in the "dist" subdirectory as they are generated via grunt. You'll find source code in the "src" subdirectory!</em></p>
+
+<h2>Release History</h2>
+
+<ul>
+<li>2012/04/24 - v0.1.0 - Initial Release </li>
+</ul><h2>License</h2>
+
+<p>Copyright (c) 2012 Matt McManus<br>
+Licensed under the MIT, GPL licenses.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/mattmcmanus">mattmcmanus</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
