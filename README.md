@@ -1,5 +1,7 @@
 # Localized Landing Pages
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mattmcmanus/jquery.localLanding.svg)](https://greenkeeper.io/)
+
 A simple and non-obtrusive way to alert your international visitors of pages on your site written in their language. The plugin simply detects the browsers language setting and provides a link to landing page of your choice.
 
 ## Getting Started
